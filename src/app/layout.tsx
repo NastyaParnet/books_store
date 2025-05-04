@@ -1,5 +1,5 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import Styledroot from "./Styledroot";
+import Styledroot from "../styles/Styledroot";
 
 export default function RootLayout({
   children,
