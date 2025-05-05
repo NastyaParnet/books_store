@@ -1,5 +1,6 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import Styledroot from "../styles/Styledroot";
+import StoreProvider from "@/store/storeProvider";
 
 export default function RootLayout({
   children,
@@ -9,9 +10,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppRouterCacheProvider options={{ key: "css" }}>
-          <Styledroot>{children}</Styledroot>
-        </AppRouterCacheProvider>
+        <StoreProvider>
+          <AppRouterCacheProvider options={{ key: "css" }}>
+            <Styledroot>{children}</Styledroot>
+          </AppRouterCacheProvider>
+        </StoreProvider>
       </body>
     </html>
   );
