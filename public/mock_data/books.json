@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "description": "A practical guide for software developers.",
+    "price": 30,
+    "image": "/mock-data/pragmatic_programmer.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A Handbook of Agile Software Craftsmanship.",
+    "price": 28,
+    "image": "/mock-data/clean_code.jpg"
+  },
+  {
+    "id": 3,
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "description": "A deep dive into the JavaScript language.",
+    "price": 25,
+    "image": "/mock-data/you_dont_know_js.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "description": "Improving the design of existing code.",
+    "price": 35,
+    "image": "/mock-data/refactoring.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke",
+    "description": "A modern introduction to programming.",
+    "price": 22,
+    "image": "/mock-data/eloquent_javascript.jpg"
+  }
+]
