@@ -1,42 +1,242 @@
 [
   {
     "id": 1,
-    "title": "The Pragmatic Programmer",
-    "author": "Andrew Hunt",
-    "description": "A practical guide for software developers.",
-    "price": 30,
-    "image": "/mock-data/pragmatic_programmer.jpg"
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A handbook of Agile software craftsmanship.",
+    "price": 29.99,
+    "image": "/mock_data/images/1.jpg"
   },
   {
     "id": 2,
-    "title": "Clean Code",
-    "author": "Robert C. Martin",
-    "description": "A Handbook of Agile Software Craftsmanship.",
-    "price": 28,
-    "image": "/mock-data/clean_code.jpg"
+    "title": "The Pragmatic Programmer",
+    "author": "Andy Hunt & Dave Thomas",
+    "description": "From journeyman to master.",
+    "price": 32.5,
+    "image": "/mock_data/images/2.jpg"
   },
   {
     "id": 3,
-    "title": "You Don't Know JS",
-    "author": "Kyle Simpson",
-    "description": "A deep dive into the JavaScript language.",
-    "price": 25,
-    "image": "/mock-data/you_dont_know_js.jpg"
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford",
+    "description": "Unearthing the excellence in JavaScript.",
+    "price": 24.0,
+    "image": "/mock_data/images/3.jpg"
   },
   {
     "id": 4,
-    "title": "Refactoring",
-    "author": "Martin Fowler",
-    "description": "Improving the design of existing code.",
-    "price": 35,
-    "image": "/mock-data/refactoring.jpg"
+    "title": "You Don’t Know JS",
+    "author": "Kyle Simpson",
+    "description": "A deep dive into JavaScript's core mechanisms.",
+    "price": 27.5,
+    "image": "/mock_data/images/4.jpg"
   },
   {
     "id": 5,
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "description": "Improving the design of existing code.",
+    "price": 35.99,
+    "image": "/mock_data/images/5.jpg"
+  },
+  {
+    "id": 6,
     "title": "Eloquent JavaScript",
     "author": "Marijn Haverbeke",
     "description": "A modern introduction to programming.",
-    "price": 22,
-    "image": "/mock-data/eloquent_javascript.jpg"
+    "price": 26.95,
+    "image": "/mock_data/images/6.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Design Patterns",
+    "author": "Erich Gamma et al.",
+    "description": "Elements of reusable object-oriented software.",
+    "price": 38.0,
+    "image": "/mock_data/images/7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Effective JavaScript",
+    "author": "David Herman",
+    "description": "68 specific ways to harness the power of JavaScript.",
+    "price": 23.99,
+    "image": "/mock_data/images/8.jpg"
+  },
+  {
+    "id": 9,
+    "title": "React Up & Running",
+    "author": "Stoyan Stefanov",
+    "description": "Building web applications.",
+    "price": 30.5,
+    "image": "/mock_data/images/9.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Learning TypeScript",
+    "author": "Josh Goldberg",
+    "description": "Enhance Your Web Development Skills Using Type-Safe JavaScript.",
+    "price": 28.0,
+    "image": "/mock_data/images/10.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Working Effectively with Legacy Code",
+    "author": "Michael Feathers",
+    "description": "Techniques for making legacy code more manageable.",
+    "price": 31.99,
+    "image": "/mock_data/images/11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "React Design Patterns and Best Practices",
+    "author": "Michele Bertoli",
+    "description": "Build easy to scale modular applications using the most powerful components and design patterns.",
+    "price": 29.5,
+    "image": "/mock_data/images/12.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Modern JavaScript. Develop and Design",
+    "author": "Larry Ullman",
+    "description": "Develop and design modern web apps.",
+    "price": 27.0,
+    "image": "/mock_data/images/13.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Pro Git",
+    "author": "Scott Chacon",
+    "description": "Everything you need to know about Git.",
+    "price": 19.99,
+    "image": "/mock_data/images/14.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Fullstack React",
+    "author": "Accomazzo et al.",
+    "description": "The complete guide to ReactJS and friends.",
+    "price": 42.0,
+    "image": "/mock_data/images/15.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Node.js Design Patterns",
+    "author": "Mario Casciaro",
+    "description": "Design and implement production-grade Node.js applications using proven patterns and techniques.",
+    "price": 33.0,
+    "image": "/mock_data/images/16.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Clean Architecture",
+    "author": "Robert C. Martin",
+    "description": "A Craftsman's Guide to Software Structure and Design.",
+    "price": 34.99,
+    "image": "/mock_data/images/17.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Mastering React",
+    "author": "Adam Horton",
+    "description": "Master the art of building modern web applications using React.",
+    "price": 31.0,
+    "image": "/mock_data/images/18.jpg"
+  },
+  {
+    "id": 19,
+    "title": "TypeScript Quickly",
+    "author": "Yakov Fain",
+    "description": "Learn TypeScript for large-scale JS apps.",
+    "price": 29.0,
+    "image": "/mock_data/images/19.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Learning React",
+    "author": "Alex Banks",
+    "description": "Modern Patterns for Developing React Apps.",
+    "price": 27.5,
+    "image": "/mock_data/images/20.jpg"
+  },
+  {
+    "id": 21,
+    "title": "High Performance. Browser Networking",
+    "author": "Ilya Grigorik",
+    "description": "What every web developer needs to know about networking and browser performance.",
+    "price": 36.0,
+    "image": "/mock_data/images/21.jpg"
+  },
+  {
+    "id": 22,
+    "title": "You Don't Know JS Yet",
+    "author": "Kyle Simpson",
+    "description": "New revised version of the classic JS series.",
+    "price": 26.5,
+    "image": "/mock_data/images/22.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Programming TypeScript",
+    "author": "Boris Cherny",
+    "description": "Making your Javascript applications scale.",
+    "price": 30.0,
+    "image": "/mock_data/images/23.jpg"
+  },
+  {
+    "id": 24,
+    "title": "SurviveJS - React",
+    "author": "Juho Vepsäläinen",
+    "description": "React from apprentice to master.",
+    "price": 28.5,
+    "image": "/mock_data/images/24.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Serverless Handbook for Frontend Engineers",
+    "author": "Swizec Teller",
+    "description": "Dive into modern backend. Understand any backend.",
+    "price": 34.5,
+    "image": "/mock_data/images/25.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Microservices Patterns",
+    "author": "Chris Richardson",
+    "description": "With examples in Java and Spring.",
+    "price": 39.0,
+    "image": "/mock_data/images/26.jpg"
+  },
+  {
+    "id": 27,
+    "title": "The Road to React",
+    "author": "Robin Wieruch",
+    "description": "Your journey to master React.js.",
+    "price": 22.0,
+    "image": "/mock_data/images/27.jpg"
+  },
+  {
+    "id": 28,
+    "title": "SPA: Design and Architecture",
+    "author": "Emmit Scott",
+    "description": "Designing large-scale front-end projects.",
+    "price": 33.99,
+    "image": "/mock_data/images/28.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Vue.js 3 By Example",
+    "author": "John Au-Yeung",
+    "description": "Blueprints to learn Vue web development, full-stack development, and cross-platform development quickly.",
+    "price": 30.99,
+    "image": "/mock_data/images/29.jpg"
+  },
+  {
+    "id": 30,
+    "title": "CSS Secrets",
+    "author": "Lea Verou",
+    "description": "Better solutions to everyday web design problems.",
+    "price": 24.0,
+    "image": "/mock_data/images/30.jpg"
   }
 ]
