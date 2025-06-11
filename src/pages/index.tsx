@@ -1,7 +1,10 @@
 import { BookList } from "@/components/BookList";
 import { Book } from "@/types/book";
-import { Box } from "@mui/material";
+import { Pagination } from "@mui/material";
 import { GetStaticProps } from "next";
+import { useState } from "react";
+
+const PAGINATION_LIMIT = 12;
 
 interface HomePageProps {
   books: Book[];
@@ -21,10 +24,29 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 };
 
 const HomePage = ({ books }: HomePageProps) => {
+  const [page, setPage] = useState(1);
+
+  const countPages = Math.ceil(books.length / PAGINATION_LIMIT);
+  const paginatedBooks = books.slice(
+    (page - 1) * PAGINATION_LIMIT,
+    page * PAGINATION_LIMIT
+  );
+
+  const onChangePage = (_: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <Box>
-      <BookList books={books} />
-    </Box>
+    <>
+      <BookList books={paginatedBooks} />
+      <Pagination
+        count={countPages}
+        page={page}
+        onChange={onChangePage}
+        sx={{ my: 2, display: "flex", justifyContent: "center" }}
+      />
+    </>
   );
 };
 
