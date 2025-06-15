@@ -8,6 +8,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 
 interface BookListProps {
@@ -15,6 +16,12 @@ interface BookListProps {
 }
 
 export const BookList = ({ books }: BookListProps) => {
+  const router = useRouter();
+
+  const handleRedirect = (id: number) => {
+    router.push(`/book/${id}`);
+  };
+
   return (
     <Grid container spacing={2} sx={{ m: 2 }}>
       {books.map((book) => (
@@ -35,15 +42,28 @@ export const BookList = ({ books }: BookListProps) => {
               component="img"
               alt={book.title}
               src={book.image}
+              onClick={() => handleRedirect(book.id)}
               sx={{
                 objectFit: "contain",
                 p: 2,
+                cursor: "pointer",
               }}
             />
             <CardContent
               sx={{ height: "100%", backgroundColor: "background.default" }}
             >
-              <Typography variant="h6">{book.title}</Typography>
+              <Typography
+                variant="h6"
+                onClick={() => handleRedirect(book.id)}
+                sx={{
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "text.secondary",
+                  },
+                }}
+              >
+                {book.title}
+              </Typography>
               <Typography variant="body2">{book.author}</Typography>
               <Typography variant="body2">${book.price}</Typography>
             </CardContent>
