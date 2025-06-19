@@ -1,4 +1,8 @@
+import { BookCard } from "@/components/BookCard";
 import { Book } from "@/types/book";
+import { Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 interface BookPageProps {
   book: Book;
@@ -42,12 +46,33 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 }
 
 const BookPage = ({ book }: BookPageProps) => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
-    <div>
-      <h1>{book.title}</h1>
-      <p>Author: {book.author}</p>
-      <p>{book.description}</p>
-    </div>
+    <Box
+      sx={{
+        m: {
+          xs: "16px 8px",
+          sm: "16px 16px",
+          md: "16px 32px",
+        },
+        display: "flex",
+        gap: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <Box sx={{ display: "flex", justifyContent: "start" }}>
+        <Button onClick={handleBack}>
+          <ArrowBackIcon sx={{ color: "text.secondary" }} />
+        </Button>
+      </Box>
+      <BookCard book={book} />
+    </Box>
   );
 };
 

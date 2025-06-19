@@ -29,9 +29,8 @@ export const BookList = ({ books }: BookListProps) => {
           <Card
             sx={{
               height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
+              display: "grid",
+              gridTemplateRows: "auto 1fr auto",
               border: `1px solid`,
               borderColor: "border",
               borderRadius: "8px",
@@ -78,7 +77,7 @@ export const BookList = ({ books }: BookListProps) => {
                   textTransform: "none",
                 }}
               >
-                Add to Card
+                Add to Cart
               </Button>
             </CardActions>
           </Card>
