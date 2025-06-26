@@ -1,7 +1,9 @@
 import { BookList } from "@/components/BookList";
+import { useCart } from "@/hooks/useCart";
 import { Book } from "@/types/book";
 import { Pagination } from "@mui/material";
 import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const PAGINATION_LIMIT = 12;
@@ -24,7 +26,10 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 };
 
 const HomePage = ({ books }: HomePageProps) => {
+  const router = useRouter();
   const [page, setPage] = useState(1);
+
+  const { addToCart, getIsInCart, removeFromCart } = useCart();
 
   const countPages = Math.ceil(books.length / PAGINATION_LIMIT);
   const paginatedBooks = books.slice(
@@ -37,9 +42,29 @@ const HomePage = ({ books }: HomePageProps) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleRedirect = (id: number) => {
+    router.push(`/book/${id}`);
+  };
+
+  const handleClickButton = (bookId: Book["id"]) => {
+    if (getIsInCart(bookId)) {
+      removeFromCart(bookId);
+    } else {
+      const book = books.find((b) => b.id === bookId);
+      if (book) {
+        addToCart(book);
+      }
+    }
+  };
+
   return (
     <>
-      <BookList books={paginatedBooks} />
+      <BookList
+        books={paginatedBooks}
+        getIsInCart={getIsInCart}
+        onRedirect={handleRedirect}
+        onClickButton={handleClickButton}
+      />
       <Pagination
         count={countPages}
         page={page}

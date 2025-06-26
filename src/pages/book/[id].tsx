@@ -3,6 +3,7 @@ import { Book } from "@/types/book";
 import { Box, Button } from "@mui/material";
 import { useRouter } from "next/router";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useCart } from "@/hooks/useCart";
 
 interface BookPageProps {
   book: Book;
@@ -47,6 +48,17 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 
 const BookPage = ({ book }: BookPageProps) => {
   const router = useRouter();
+  const { addToCart, getIsInCart, removeFromCart } = useCart();
+
+  const isInCart = getIsInCart(book.id);
+
+  const handleClickButton = () => {
+    if (getIsInCart(book.id)) {
+      removeFromCart(book.id);
+    } else {
+      addToCart(book);
+    }
+  };
 
   const handleBack = () => {
     router.back();
@@ -71,7 +83,11 @@ const BookPage = ({ book }: BookPageProps) => {
           <ArrowBackIcon sx={{ color: "text.secondary" }} />
         </Button>
       </Box>
-      <BookCard book={book} />
+      <BookCard
+        book={book}
+        isInCart={isInCart}
+        onClickButton={handleClickButton}
+      />
     </Box>
   );
 };

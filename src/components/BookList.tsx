@@ -8,20 +8,21 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { useRouter } from "next/router";
 import React from "react";
 
 interface BookListProps {
   books: Book[];
+  getIsInCart: (bookId: Book["id"]) => boolean;
+  onRedirect: (bookId: Book["id"]) => void;
+  onClickButton: (bookId: Book["id"]) => void;
 }
 
-export const BookList = ({ books }: BookListProps) => {
-  const router = useRouter();
-
-  const handleRedirect = (id: number) => {
-    router.push(`/book/${id}`);
-  };
-
+export const BookList = ({
+  books,
+  getIsInCart,
+  onRedirect,
+  onClickButton,
+}: BookListProps) => {
   return (
     <Grid container spacing={2} sx={{ m: 2 }}>
       {books.map((book) => (
@@ -41,7 +42,7 @@ export const BookList = ({ books }: BookListProps) => {
               component="img"
               alt={book.title}
               src={book.image}
-              onClick={() => handleRedirect(book.id)}
+              onClick={() => onRedirect(book.id)}
               sx={{
                 objectFit: "contain",
                 p: 2,
@@ -53,7 +54,7 @@ export const BookList = ({ books }: BookListProps) => {
             >
               <Typography
                 variant="h6"
-                onClick={() => handleRedirect(book.id)}
+                onClick={() => onRedirect(book.id)}
                 sx={{
                   cursor: "pointer",
                   "&:hover": {
@@ -72,12 +73,13 @@ export const BookList = ({ books }: BookListProps) => {
                 size="small"
                 variant="outlined"
                 sx={{
-                  color: "text.secondary",
+                  color: getIsInCart(book.id) ? "error.main" : "text.secondary",
                   borderColor: "border",
                   textTransform: "none",
                 }}
+                onClick={() => onClickButton(book.id)}
               >
-                Add to Cart
+                {getIsInCart(book.id) ? "Remove from Cart" : "Add to Cart"}
               </Button>
             </CardActions>
           </Card>

@@ -35,6 +35,10 @@ export const useCart = () => {
     dispatch(clearCart());
   };
 
+  const getIsInCart = (bookId: Book["id"]) => {
+    return items.some((item) => item.id === bookId);
+  };
+
   return {
     items,
     count,
@@ -43,5 +47,6 @@ export const useCart = () => {
     removeFromCart: remove,
     decreaseQuantity: decrease,
     clearCart: clear,
+    getIsInCart,
   };
 };

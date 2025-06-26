@@ -12,9 +12,11 @@ import React from "react";
 
 interface BookCardProps {
   book: Book;
+  isInCart: boolean;
+  onClickButton: () => void;
 }
 
-export const BookCard = ({ book }: BookCardProps) => {
+export const BookCard = ({ book, isInCart, onClickButton }: BookCardProps) => {
   return (
     <Card
       sx={{
@@ -66,12 +68,13 @@ export const BookCard = ({ book }: BookCardProps) => {
             size="small"
             variant="outlined"
             sx={{
-              color: "text.secondary",
+              color: isInCart ? "error.main" : "text.secondary",
               borderColor: "border",
               textTransform: "none",
             }}
+            onClick={onClickButton}
           >
-            Add to Cart
+            {isInCart ? "Remove from Cart" : "Add to Cart"}
           </Button>
         </CardActions>
       </Box>
