@@ -34,6 +34,9 @@ export const palette: PaletteOptions = {
     default: "#121212",
     surface: "#1C1C1E",
   },
+  primary: {
+    main: "#376DE3",
+  },
   error: {
     main: "#F44336",
   },

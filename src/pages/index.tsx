@@ -1,4 +1,5 @@
 import { BookList } from "@/components/BookList";
+import { Header } from "@/components/Header";
 import { useCart } from "@/hooks/useCart";
 import { Book } from "@/types/book";
 import { Pagination } from "@mui/material";
@@ -29,7 +30,12 @@ const HomePage = ({ books }: HomePageProps) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
 
-  const { addToCart, getIsInCart, removeFromCart } = useCart();
+  const {
+    count: countBooksInCart,
+    addToCart,
+    getIsInCart,
+    removeFromCart,
+  } = useCart();
 
   const countPages = Math.ceil(books.length / PAGINATION_LIMIT);
   const paginatedBooks = books.slice(
@@ -59,6 +65,7 @@ const HomePage = ({ books }: HomePageProps) => {
 
   return (
     <>
+      <Header label="Books List" countBooksInCart={countBooksInCart} />
       <BookList
         books={paginatedBooks}
         getIsInCart={getIsInCart}

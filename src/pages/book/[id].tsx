@@ -1,9 +1,9 @@
 import { BookCard } from "@/components/BookCard";
 import { Book } from "@/types/book";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { useRouter } from "next/router";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useCart } from "@/hooks/useCart";
+import { Header } from "@/components/Header";
 
 interface BookPageProps {
   book: Book;
@@ -48,7 +48,12 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 
 const BookPage = ({ book }: BookPageProps) => {
   const router = useRouter();
-  const { addToCart, getIsInCart, removeFromCart } = useCart();
+  const {
+    count: countBooksInCart,
+    addToCart,
+    getIsInCart,
+    removeFromCart,
+  } = useCart();
 
   const isInCart = getIsInCart(book.id);
 
@@ -65,30 +70,28 @@ const BookPage = ({ book }: BookPageProps) => {
   };
 
   return (
-    <Box
-      sx={{
-        m: {
-          xs: "16px 8px",
-          sm: "16px 16px",
-          md: "16px 32px",
-        },
-        display: "flex",
-        gap: 1,
-        flexDirection: "column",
-        justifyContent: "center",
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "start" }}>
-        <Button onClick={handleBack}>
-          <ArrowBackIcon sx={{ color: "text.secondary" }} />
-        </Button>
+    <>
+      <Header onClickBack={handleBack} countBooksInCart={countBooksInCart} />
+      <Box
+        sx={{
+          m: {
+            xs: "16px 8px",
+            sm: "16px 16px",
+            md: "16px 32px",
+          },
+          display: "flex",
+          gap: 1,
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <BookCard
+          book={book}
+          isInCart={isInCart}
+          onClickButton={handleClickButton}
+        />
       </Box>
-      <BookCard
-        book={book}
-        isInCart={isInCart}
-        onClickButton={handleClickButton}
-      />
-    </Box>
+    </>
   );
 };
 
