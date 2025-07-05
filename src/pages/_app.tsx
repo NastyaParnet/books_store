@@ -4,14 +4,10 @@ import { AppProps } from "next/app";
 
 export default function RootLayout({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      <body>
-        <StoreProvider>
-          <Styledroot>
-            <Component {...pageProps} />
-          </Styledroot>
-        </StoreProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <Styledroot>
+        <Component {...pageProps} />
+      </Styledroot>
+    </StoreProvider>
   );
 }
