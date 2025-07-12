@@ -50,6 +50,7 @@ const BookPage = ({ book }: BookPageProps) => {
   const router = useRouter();
   const {
     count: countBooksInCart,
+    items: booksInCart,
     addToCart,
     getIsInCart,
     removeFromCart,
@@ -71,7 +72,11 @@ const BookPage = ({ book }: BookPageProps) => {
 
   return (
     <>
-      <Header onClickBack={handleBack} countBooksInCart={countBooksInCart} />
+      <Header
+        onClickBack={handleBack}
+        booksInCart={booksInCart}
+        countBooksInCart={countBooksInCart}
+      />
       <Box
         sx={{
           m: {

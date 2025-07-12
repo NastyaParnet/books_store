@@ -32,6 +32,7 @@ const HomePage = ({ books }: HomePageProps) => {
 
   const {
     count: countBooksInCart,
+    items: booksInCart,
     addToCart,
     getIsInCart,
     removeFromCart,
@@ -65,7 +66,11 @@ const HomePage = ({ books }: HomePageProps) => {
 
   return (
     <>
-      <Header label="Books List" countBooksInCart={countBooksInCart} />
+      <Header
+        label="Books List"
+        countBooksInCart={countBooksInCart}
+        booksInCart={booksInCart}
+      />
       <BookList
         books={paginatedBooks}
         getIsInCart={getIsInCart}

@@ -2,16 +2,19 @@ import { Badge, Box, Button, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Cart } from "./Cart";
+import { Cart } from "./Cart/Cart";
+import { CartItem } from "@/types/cart";
 
 interface HeaderProps {
   countBooksInCart: number;
+  booksInCart: CartItem[];
   label?: string;
   onClickBack?: VoidFunction;
 }
 
 export const Header = ({
   countBooksInCart,
+  booksInCart,
   label,
   onClickBack,
 }: HeaderProps) => {
@@ -67,7 +70,11 @@ export const Header = ({
         </IconButton>
       </Box>
 
-      <Cart open={openCart} onClose={handleCloseCart} />
+      <Cart
+        open={openCart}
+        booksInCart={booksInCart}
+        onClose={handleCloseCart}
+      />
     </>
   );
 };
