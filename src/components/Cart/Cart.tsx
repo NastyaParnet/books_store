@@ -8,9 +8,12 @@ interface CartProps {
   open: boolean;
   booksInCart: CartItem[];
   onClose: VoidFunction;
+  onAddQuantityBookInCart: (bookId: number) => void;
+  onDecreaseQuantityBookInCart: (bookId: number) => void;
+  onRemoveBookFromCart: (bookId: number) => void;
 }
 
-export const Cart = ({ open, booksInCart, onClose }: CartProps) => {
+export const Cart = ({ open, booksInCart, onClose, ...other }: CartProps) => {
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
       <Box sx={{ p: 1, display: "flex", justifyContent: "end" }}>
@@ -29,7 +32,7 @@ export const Cart = ({ open, booksInCart, onClose }: CartProps) => {
         }}
       >
         {booksInCart.map((book) => (
-          <BookInCart key={book.id} book={book} />
+          <BookInCart key={book.id} book={book} {...other} />
         ))}
       </Box>
     </Drawer>

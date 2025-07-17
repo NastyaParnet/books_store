@@ -9,6 +9,9 @@ interface HeaderProps {
   countBooksInCart: number;
   booksInCart: CartItem[];
   label?: string;
+  onAddQuantityBookInCart: (bookId: number) => void;
+  onDecreaseQuantityBookInCart: (bookId: number) => void;
+  onRemoveBookFromCart: (bookId: number) => void;
   onClickBack?: VoidFunction;
 }
 
@@ -17,6 +20,7 @@ export const Header = ({
   booksInCart,
   label,
   onClickBack,
+  ...other
 }: HeaderProps) => {
   const [openCart, setOpenCart] = useState(false);
 
@@ -74,6 +78,7 @@ export const Header = ({
         open={openCart}
         booksInCart={booksInCart}
         onClose={handleCloseCart}
+        {...other}
       />
     </>
   );

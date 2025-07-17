@@ -17,9 +17,17 @@ import React from "react";
 
 interface BookInCartProps {
   book: CartItem;
+  onAddQuantityBookInCart: (bookId: number) => void;
+  onDecreaseQuantityBookInCart: (bookId: number) => void;
+  onRemoveBookFromCart: (bookId: number) => void;
 }
 
-export const BookInCart = ({ book }: BookInCartProps) => {
+export const BookInCart = ({
+  book,
+  onAddQuantityBookInCart,
+  onDecreaseQuantityBookInCart,
+  onRemoveBookFromCart,
+}: BookInCartProps) => {
   return (
     <Card
       sx={{
@@ -64,19 +72,21 @@ export const BookInCart = ({ book }: BookInCartProps) => {
           gap: 3,
         }}
       >
-        <IconButton color="error" onClick={() => {}}>
+        <IconButton color="error" onClick={() => onRemoveBookFromCart(book.id)}>
           <DeleteOutlineIcon />
         </IconButton>
 
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton onClick={() => {}}>
+          <IconButton onClick={() => onDecreaseQuantityBookInCart(book.id)}>
             <RemoveIcon />
           </IconButton>
           <TextField
+            disabled
             type="number"
             size="small"
             value={book.quantity}
             sx={{
+              width: "60px",
               "& input": {
                 textAlign: "center",
               },
@@ -85,14 +95,14 @@ export const BookInCart = ({ book }: BookInCartProps) => {
               },
             }}
           />
-          <IconButton onClick={() => {}}>
+          <IconButton onClick={() => onAddQuantityBookInCart(book.id)}>
             <AddIcon />
           </IconButton>
         </Box>
 
         <Box sx={{ p: 1 }}>
           <Typography variant="body2" color="textSecondary">
-            ${book.price.toFixed(2)}
+            ${(book.quantity * book.price).toFixed(2)}
           </Typography>
         </Box>
       </CardActions>

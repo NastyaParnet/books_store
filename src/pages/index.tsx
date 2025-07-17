@@ -33,8 +33,9 @@ const HomePage = ({ books }: HomePageProps) => {
   const {
     count: countBooksInCart,
     items: booksInCart,
-    addToCart,
     getIsInCart,
+    addToCart,
+    decreaseQuantity,
     removeFromCart,
   } = useCart();
 
@@ -64,12 +65,22 @@ const HomePage = ({ books }: HomePageProps) => {
     }
   };
 
+  const handleAddQuantity = (bookId: number) => {
+    const book = booksInCart.find((item) => item.id === bookId);
+    if (book) {
+      addToCart(book);
+    }
+  };
+
   return (
     <>
       <Header
         label="Books List"
         countBooksInCart={countBooksInCart}
         booksInCart={booksInCart}
+        onAddQuantityBookInCart={handleAddQuantity}
+        onDecreaseQuantityBookInCart={decreaseQuantity}
+        onRemoveBookFromCart={removeFromCart}
       />
       <BookList
         books={paginatedBooks}

@@ -51,8 +51,9 @@ const BookPage = ({ book }: BookPageProps) => {
   const {
     count: countBooksInCart,
     items: booksInCart,
-    addToCart,
     getIsInCart,
+    addToCart,
+    decreaseQuantity,
     removeFromCart,
   } = useCart();
 
@@ -70,12 +71,22 @@ const BookPage = ({ book }: BookPageProps) => {
     router.back();
   };
 
+  const handleAddQuantity = (bookId: number) => {
+    const book = booksInCart.find((item) => item.id === bookId);
+    if (book) {
+      addToCart(book);
+    }
+  };
+
   return (
     <>
       <Header
-        onClickBack={handleBack}
         booksInCart={booksInCart}
         countBooksInCart={countBooksInCart}
+        onClickBack={handleBack}
+        onAddQuantityBookInCart={handleAddQuantity}
+        onDecreaseQuantityBookInCart={decreaseQuantity}
+        onRemoveBookFromCart={removeFromCart}
       />
       <Box
         sx={{
