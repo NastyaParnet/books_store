@@ -3,7 +3,7 @@ import { Book } from "@/types/book";
 import { Box } from "@mui/material";
 import { useRouter } from "next/router";
 import { useCart } from "@/hooks/useCart";
-import { Header } from "@/components/Header";
+import HeaderWithCart from "@/components/Header/HeaderWithCart";
 
 interface BookPageProps {
   book: Book;
@@ -48,14 +48,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 
 const BookPage = ({ book }: BookPageProps) => {
   const router = useRouter();
-  const {
-    count: countBooksInCart,
-    items: booksInCart,
-    getIsInCart,
-    addToCart,
-    decreaseQuantity,
-    removeFromCart,
-  } = useCart();
+  const { getIsInCart, addToCart, removeFromCart } = useCart();
 
   const isInCart = getIsInCart(book.id);
 
@@ -71,23 +64,9 @@ const BookPage = ({ book }: BookPageProps) => {
     router.back();
   };
 
-  const handleAddQuantity = (bookId: number) => {
-    const book = booksInCart.find((item) => item.id === bookId);
-    if (book) {
-      addToCart(book);
-    }
-  };
-
   return (
     <>
-      <Header
-        booksInCart={booksInCart}
-        countBooksInCart={countBooksInCart}
-        onClickBack={handleBack}
-        onAddQuantityBookInCart={handleAddQuantity}
-        onDecreaseQuantityBookInCart={decreaseQuantity}
-        onRemoveBookFromCart={removeFromCart}
-      />
+      <HeaderWithCart onClickBack={handleBack} />
       <Box
         sx={{
           m: {
